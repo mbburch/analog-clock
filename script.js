@@ -6,6 +6,8 @@ class Clock {
     this.secondHand = document.querySelector('.second-hand');
     this.pauseButton = document.querySelector('#pause');
     this.resumeButton = document.querySelector('#resume');
+    this.pauseButton.addEventListener('click', (e) => { this.pauseClock(e); });
+    this.resumeButton.addEventListener('click', (e) => { this.resumeClock(e); });
 
     this.runClock = setInterval(() => this.setTime(), 1000);
   }
@@ -24,6 +26,14 @@ class Clock {
     const hour = time.getHours();
     const hourDegrees = ((hour/12) * 360) + ((minutes/60) * 30) + 90;
     this.hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+  }
+
+  pauseClock(e) {
+    window.clearInterval(this.runClock);
+  }
+
+  resumeClock(e) {
+    this.runClock = setInterval(() => this.setTime(), 1000);
   }
 }
 

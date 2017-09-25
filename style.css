@@ -67,3 +67,11 @@ body {
   height: 3px;
   background: #D35400;
 }
+
+button {
+	border-radius: 15px;
+	cursor: pointer;
+  background: #EAECEE;
+	font-size: 2rem;
+	padding: 10px;
+}
